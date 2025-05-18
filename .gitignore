@@ -1,0 +1,16 @@
+# IDE-specific
+.vscode/
+
+# Compiled output / Build artifacts
+# Rust specific (often per-crate, but a general rule can be useful)
+**/target/
+
+# Log files
+*.log
+
+# OS-generated files
+.DS_Store
+Thumbs.db
+
+# Temporary Untitled files (if these are not part of your project source)
+Untitled-*

@@ -1,0 +1,20 @@
+# In your Helm chart's values.yaml
+autoscaling:
+  enabled: true # A flag to enable/disable HPA creation
+  minReplicas: 3
+  maxReplicas: 50
+  metrics:
+    # This structure implies you're using custom or external metrics.
+    # The exact format depends on HPA API version (e.g., autoscaling/v2)
+    # and your metrics setup (e.g., Prometheus Adapter).
+    - type: External # Or "Object" or "Pods" or "Resource" depending on metric source
+      external: # Or relevant block for other types
+        metric:
+          name: solana_transactions_per_second # The actual metric name
+          # selector: {matchLabels: {app: my-execution-node}} # Optional: if metric has labels
+        target:
+          type: Value # Target a raw value
+          value: "5000" # Target 5000 TPS for the metric `solana_transactions_per_second`
+          # Or use AverageValue if the metric is per-pod
+          # type: AverageValue
+          # averageValue: "1000" # e.g. target 1000 TPS per pod

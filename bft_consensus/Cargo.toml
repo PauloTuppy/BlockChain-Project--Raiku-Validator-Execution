@@ -1,0 +1,17 @@
+[dependencies]
+tokio = { version = "1", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+anyhow = "1.0"
+bytes = "1" # For network messages
+parking_lot = "0.12" # For RwLock, often preferred over std::sync::RwLock in async contexts
+futures = "0.3" # Added for join_all
+# For Threshold Cryptography (example, replace with actual crate if used)
+# threshold_crypto = "0.4" # Or a similar crate for threshold signatures
+
+# Assuming zk_prover is a local crate and Block/StarkProof are defined there or in a shared types crate
+# If Block and StarkProof are defined in zk_prover:
+# zk_prover = { path = "../zk_prover" } # Adjust path as needed
+# Or if they are in a shared types module:
+# shared_types = { path = "../shared_types" }
+
+# For this example, we'll define dummy Block and StarkProof locally.
