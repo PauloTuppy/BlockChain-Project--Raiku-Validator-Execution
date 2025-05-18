@@ -1,0 +1,8 @@
+# Prometheus Metrics
+- name: scheduler_accuracy
+  type: Gauge
+# Grafana Dashboard
+panels:
+  - title: System Health
+    metrics:
+      - sum(rate(node_cpu_seconds[5m])) by (instance)
