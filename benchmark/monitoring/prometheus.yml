@@ -1,0 +1,28 @@
+global:
+  scrape_interval: 15s
+  evaluation_interval: 15s
+
+scrape_configs:
+  - job_name: 'solana-validator'
+    static_configs:
+      - targets: ['validator:9090']
+        labels:
+          component: 'validator'
+
+  - job_name: 'execution-node'
+    static_configs:
+      - targets: ['exec-node:9090']
+        labels:
+          component: 'execution-node'
+
+  - job_name: 'sidecar'
+    static_configs:
+      - targets: ['sidecar:9090']
+        labels:
+          component: 'sidecar'
+
+  - job_name: 'load-generator'
+    static_configs:
+      - targets: ['loadgen:9090']
+        labels:
+          component: 'load-generator'
